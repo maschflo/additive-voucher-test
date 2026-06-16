@@ -36,7 +36,6 @@ class VoucherController extends Controller
             'code' => strtoupper(Str::random(16))
         ]);
 
-        \Log::info('event fired');
         VoucherIssued::dispatch($newVoucher);
 
         return new VoucherResource($newVoucher)->response()->setStatusCode(201);

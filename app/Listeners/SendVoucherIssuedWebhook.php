@@ -21,7 +21,6 @@ class SendVoucherIssuedWebhook
      */
     public function handle(VoucherIssued $event): void
     {
-        \Log::info('listener called');
         $body = [
             'event' => 'voucher.issued',
             'voucher' => $event->voucher->toArray(),

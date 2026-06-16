@@ -26,7 +26,6 @@ class DeliverWebhook implements ShouldQueue
 
     public function handle(): void
     {
-        \Log::info('deliver called');
         $signature = hash_hmac('sha256', $this->payload, $this->subscription->secret);
 
         $response = Http::withHeader('X-Signature', 'sha256=' . $signature)

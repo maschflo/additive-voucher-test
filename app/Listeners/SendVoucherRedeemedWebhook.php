@@ -21,7 +21,6 @@ class SendVoucherRedeemedWebhook
      */
     public function handle(VoucherRedeemed $event): void
     {
-        \Log::info('listener called');
         $body = [
             'event' => 'voucher.redeemed',
             'voucher' => $event->voucher->toArray(),
